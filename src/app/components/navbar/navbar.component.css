@@ -1,0 +1,45 @@
+
+.menu-container {
+    color: #fff;
+    background-color: #a80000;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.menu {
+    /* border: 1px solid #fff; */
+    width: 80%; 
+    display: flex;
+    justify-content: space-between;
+}
+
+.links {
+    display: flex;
+    justify-content: flex-end;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-weight: bold;
+
+}
+
+.title {
+    font-weight: bold;
+    font-size: 26px;
+    color: rgb(0, 0, 0);
+
+}
+
+
+.login {
+    margin-left: 20px;
+}
+
+.signup {
+    margin-left: auto;
+}
+
+.contact {
+    margin-left: 20px;
+    color: bisque;
+}

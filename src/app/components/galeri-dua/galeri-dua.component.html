@@ -1,0 +1,8 @@
+<div class="galeri-container">
+
+    <h1>GALLERY</h1>
+    <button (click)="addImage()">add image</button>
+    <div class="galeri">
+        <img *ngFor="let image of images" [src]="image" [alt]="image">
+    </div>
+</div>

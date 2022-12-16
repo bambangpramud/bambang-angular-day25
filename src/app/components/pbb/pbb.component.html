@@ -1,0 +1,30 @@
+<body>
+    
+<div class="pbb-container container ">
+    <div class="calculator">
+        <h4 class="title">PBB CALCULATOR</h4>
+        <br>
+
+        <form>
+            <div class="input-form form-group">
+                <label for="lt">Luas Tanah:</label><br>
+                <input class="input" id="lt" type="number" name="lt" [(ngModel)]="lt"><br><br>
+                <label for="lb">Luas Bangunan:</label><br>
+                <input class="input" id="lb" type="number"  name="lb" [(ngModel)]="lb"><br><br>
+                <label for="njopt">NJOP Tanah :</label><br>
+                <input class="input" id="njopt" type="number" name="njopt" [(ngModel)]="njopt"><br><br>
+                <label for="njopb">NJOP Bangunan:</label><br>
+                <input class="input" id="njopb" type="number"  name="njopb" [(ngModel)]="njopb"><br><br>
+            </div>
+
+            <div class="btn submit-calculator" (click)="hitungPbb()">Hitung</div><br>
+            <div class="pbb-calculator-result">
+                <h4 class="title">PBB CALCULATOR RESULT</h4>
+                <br><br>
+                <h6 *ngIf="pbb > 0" id="pbb-result" class="pbb-result" [innerHTML]="result" ></h6>
+            </div>
+        </form>
+    </div>
+    
+</div>  
+</body>

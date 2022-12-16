@@ -1,0 +1,39 @@
+.galeri{
+    /* flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center; */
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+
+}
+.image-content{
+    margin: 5px;
+}
+.image-content > img{
+   
+    width: 100%;
+    height: auto;
+}
+
+
+
+.add-image {
+    margin:10px auto;
+    display: flex;
+    width: 50%;
+    height: 50px;
+    background-color: rgb(255, 214, 160);
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-weight: bold;
+    opacity: 70%;
+    font-size:24px;
+    border-radius: 5px;
+}
+.add-image:hover {
+    opacity: 100%;
+}

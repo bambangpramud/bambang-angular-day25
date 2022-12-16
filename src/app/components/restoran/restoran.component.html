@@ -1,0 +1,107 @@
+<div class="container mt-3">
+    <div class="card shadow">
+        <div class="card-body">
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title">
+                                <h2>Menu App</h2>
+                                <div class="form-group mb-2">
+                                    <label class="form-label">Makanan/Minuman</label>
+                                    <input type="text" [(ngModel)]="menu.namaMakanan" class="form-control" />
+                                    <label class="form-label">Harga per Makanan/minuman</label>
+                                    <input type="number" [(ngModel)]="menu.hargaMakanan" class="form-control" />
+                                    <label class="form-label">Jumlah</label>
+                                    <input type="number" [(ngModel)]="menu.jumlahMakanan" class="form-control" />
+                                </div>
+                                <button class="btn btn-primary " (click)="addMakanan()"> tambah order</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <div class="card-title">
+                                <h3>Daftar Order</h3>
+                            </div>
+                            <table class="table" *ngIf="totalHarga>0 else belumbeli">
+                                <thead>
+                                    <tr>
+                                        <th>makanan/minuman</th>
+                                        <th>Jumlah</th>
+                                        <th>harga </th>
+                                        <th>Action</th>
+                                    </tr>
+
+                                </thead>
+                                <tbody >
+                                    <ng-template  ngFor let-m [ngForOf]="menus" let-i="index">
+                                        <tr>
+                                            <td>{{m.namaMakanan}}</td>
+                                            <td>{{m.jumlahMakanan}}</td>
+                                            <td>{{m.harga}}</td>
+                                            <td>
+                                                <button (click)="remove(i)"
+                                                    class="btn btn-danger btn-sm">Delete</button>
+                                            </td>
+                                        </tr>
+                                    </ng-template>
+                                    
+                                </tbody>
+                              
+                                <tfoot>
+                                    <tr *ngIf="grandTotal>0" class=""><strong> 11% : {{totalHarga*pajakPPN |
+                                            currency:"IDR"}}</strong></tr>
+                                    <tr *ngIf="grandTotal>0" class=""><strong>total Harga : {{totalHarga |
+                                            currency:"IDR"}}</strong></tr>
+                                    <tr *ngIf="grandTotal>0" class=""><strong>
+                                            <h5> Total Harga + PPN: {{grandTotal | currency:"IDR"}}</h5>
+                                        </strong></tr>
+                                    <div *ngIf="totalHarga>0">
+                                        <div *ngIf="grandTotal>0">
+
+                                            <label class="form-label mt-5">Bayar</label>
+                                            <input type="number" [(ngModel)]="uang" (change)="bayar()" class="form-control" />
+                                        </div>
+                                        <label *ngIf="kembalian>0" class="form-label mt-3">Kembalian</label>
+                                        <input *ngIf="kembalian>0" type="text" disabled [(ngModel)]="kembalian" class="form-control" />
+
+                                        <div *ngIf="kembalian>0 else kurangduit" class="alert alert-primary mt-3">
+                                            {{resultBayar}}
+                                        </div>
+                                       <ng-template #kurangduit>
+                                        <div class="alert alert-danger mt-3">
+                                            {{resultBayar}}
+                                        </div>
+                                       </ng-template>
+
+                                    </div>
+                                </tfoot>
+
+                            </table>
+
+                            <ng-template #belumbeli>
+                                <div class="alert alert-warning">
+                                    yok beli yok 
+                                </div>
+                            </ng-template>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
